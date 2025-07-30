@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModalHandler();
         }
     });
-
+    // const 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.style.display === 'block') {
             closeModalHandler();
