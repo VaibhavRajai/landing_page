@@ -91,12 +91,8 @@ function smoothScroll(target) {
         });
     }
 }
-
-// Mobile Menu Toggle
 function toggleMobileMenu() {
     navMenu.classList.toggle('active');
-    
-    // Animate hamburger
     const spans = hamburger.querySelectorAll('span');
     spans.forEach((span, index) => {
         if (navMenu.classList.contains('active')) {
@@ -110,7 +106,6 @@ function toggleMobileMenu() {
     });
 }
 
-// Close mobile menu when clicking on a link
 function closeMobileMenu() {
     navMenu.classList.remove('active');
     const spans = hamburger.querySelectorAll('span');
@@ -119,41 +114,29 @@ function closeMobileMenu() {
         span.style.opacity = '1';
     });
 }
-
-// Modal Functions
 function openModal(serviceType) {
     const service = serviceData[serviceType];
     if (service) {
         modalTitle.textContent = service.title;
         modalBody.innerHTML = service.content;
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden'; 
     }
 }
-
 function closeModalHandler() {
     modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
+    document.body.style.overflow = 'auto'; 
 }
-
-// Form Validation
 function validateForm() {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
-    
     let isValid = true;
-    
-    // Clear previous errors
     clearErrors();
-    
-    // Validate name
     if (!name) {
         showError('nameError', 'Name is required');
         isValid = false;
     }
-    
-    // Validate email
     if (!email) {
         showError('emailError', 'Email is required');
         isValid = false;
@@ -161,8 +144,6 @@ function validateForm() {
         showError('emailError', 'Please enter a valid email address');
         isValid = false;
     }
-    
-    // Validate message
     if (!message) {
         showError('messageError', 'Message is required');
         isValid = false;
@@ -195,9 +176,7 @@ function isValidEmail(email) {
 
 function handleFormSubmit(e) {
     e.preventDefault();
-    
     if (validateForm()) {
-        // Simulate form submission
         const submitButton = document.querySelector('.submit-button');
         const originalText = submitButton.textContent;
         
@@ -212,17 +191,13 @@ function handleFormSubmit(e) {
         }, 2000);
     }
 }
-
-// Active Navigation Link
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section');
     const scrollPos = window.scrollY + 100;
-    
     sections.forEach(section => {
         const top = section.offsetTop;
         const bottom = top + section.offsetHeight;
         const id = section.getAttribute('id');
-        
         if (scrollPos >= top && scrollPos < bottom) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
