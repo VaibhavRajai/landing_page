@@ -1,4 +1,3 @@
-// DOM Elements
 const themeToggle = document.getElementById('themeToggle');
 const ctaButton = document.getElementById('ctaButton');
 const hamburger = document.querySelector('.hamburger');
@@ -10,8 +9,6 @@ const modalTitle = document.getElementById('modalTitle');
 const modalBody = document.getElementById('modalBody');
 const closeModal = document.querySelector('.close');
 const contactForm = document.getElementById('contactForm');
-
-// Service data for modal content
 const serviceData = {
     web: {
         title: 'Web Development',
@@ -59,8 +56,6 @@ const serviceData = {
         `
     }
 };
-
-// Theme Toggle Functionality
 function initTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -74,17 +69,14 @@ function updateThemeIcon(theme) {
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
 }
-
-// Smooth Scrolling Function
 function smoothScroll(target) {
     const element = document.querySelector(target);
     if (element) {
-        const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+        const offsetTop = element.offsetTop - 80; 
         window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
